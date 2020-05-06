@@ -447,15 +447,40 @@ The returned document contains a subset of the following fields:
 .. data:: delete.writeConcernError
 
    Document that describe error related to write concern and contains
-   the field:
+   the fields:
 
    .. data:: delete.writeConcernError.code
 
       An integer value identifying the cause of the write concern error.
 
-   .. data:: delete.writeConcernError.errmsg
+    .. data:: delete.writeConcernError.errmsg
 
       A description of the cause of the write concern error.
+
+    .. data:: delete.writeConcernError.errInfo.writeConcern
+
+      A document containing information on the write concern used for
+      the operation.
+
+      .. data:: delete.writeConcernError.errInfo.writeConcern.w
+
+         An integer value indicating the number of nodes to which
+         the operation must propagate.
+
+      .. data:: delete.writeConcernError.errInfo.writeConcern.wtimeout
+
+         An integer value indicating the time limit in milliseconds for
+         the write concern.
+
+      .. data:: delete.writeConcernError.errInfo.writeConcern.provenance
+
+         A string value indicating where the write concern originated
+         (known as write concern ``provenance``). The following table
+         shows the possible values for this field and their
+         significance:
+
+         .. include:: /includes/fact-wc-provenance-table.rst
+
 
 The following is an example document returned for a successful
 :dbcommand:`delete` command:

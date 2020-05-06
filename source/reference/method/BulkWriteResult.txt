@@ -110,13 +110,31 @@ The :method:`BulkWriteResult` has the following properties:
 
    .. data:: BulkWriteResult.writeConcernError.code
 
-      An integer value identifying the cause of the write concern error.
-
-   .. data:: BulkWriteResult.writeConcernError.errInfo
-
-      A document identifying the write concern setting related to the
-      error.
+     An integer value identifying the cause of the write concern error.
 
    .. data:: BulkWriteResult.writeConcernError.errmsg
 
-      A description of the cause of the write concern error.
+     A description of the cause of the write concern error.
+
+   .. data:: BulkWriteResult.writeConcernError.errInfo.writeConcern
+
+     A document containing information on the write concern used for
+     the operation.
+
+     .. data:: BulkWriteResult.writeConcernError.errInfo.writeConcern.w
+
+        An integer value indicating the number of nodes to which
+        the operation must propagate.
+
+     .. data:: BulkWriteResult.writeConcernError.errInfo.writeConcern.wtimeout
+
+        An integer value indicating the time limit in milliseconds for
+        the write concern.
+
+     .. data:: BulkWriteResult.writeConcernError.errInfo.writeConcern.provenance
+
+        A string value indicating where the write concern originated.
+        The following table shows the possible values for this field
+        and their significance:
+
+        .. include:: /includes/fact-wc-provenance-table.rst

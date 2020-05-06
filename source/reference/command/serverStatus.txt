@@ -3670,7 +3670,11 @@ metrics
                "num" : <num>,
                "totalMillis" : <num>
             },
-            "wtimeouts" : NumberLong(<num>)
+            "wtimeouts" : NumberLong(<num>),
+            "default" : {
+                "unsatisfiable" : <num>
+                "wtimeouts" : <num>
+            }
       },
       "operation" : {
             "scanAndOrder" : NumberLong(<num>),
@@ -3854,7 +3858,35 @@ metrics
 
    The number of times that :term:`write concern` operations have timed
    out as a result of the ``wtimeout`` threshold to
-   :dbcommand:`getLastError`.
+   :dbcommand:`getLastError`. This number increments for both default
+   and non-default write concern specifications. [#non-default-wc]_
+
+.. serverstatus:: metrics.getLastError.default
+
+   A document that reports on :dbcommand:`getLastError` use specific
+   to operations where a default write concern was used (meaning,
+   a non-``clientSupplied`` write concern). [#non-default-wc]_
+
+.. serverstatus:: metrics.getLastError.default.unsatisfiable
+
+   Number of times that a non-``clientSupplied`` write concern
+   returned the ``UnsatisfiableWriteConcern`` error code.
+   [#non-default-wc]_
+
+.. serverstatus:: metrics.getLastError.default.wtimeouts
+
+   Number of times a non-``clientSupplied`` write concern timed out
+   (``wtimeouts`` caused by an ``implicitDefault``, ``customDefault``,
+   or ``getLastErrorDefaults`` write concern). [#non-default-wc]_
+
+.. [#non-default-wc]
+
+   Write concerns specified directly in an operation, or can rely on a
+   global default. The origin of a write concern is called its
+   ``provenance``. Refer to the following table for information on
+   the varius write concern provenances:
+
+   .. include:: /includes/fact-wc-provenance-table.rst
 
 .. serverstatus:: metrics.operation
 

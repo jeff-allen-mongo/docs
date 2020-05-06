@@ -84,16 +84,36 @@ The :method:`WriteResult` has the following properties:
 
    .. data:: WriteResult.writeConcernError.code
 
-      An integer value identifying the write concern error.
-
-   .. data:: WriteResult.writeConcernError.errInfo
-
-      A document identifying the write concern setting related to the
-      error.
+     An integer value identifying the cause of the write concern error.
 
    .. data:: WriteResult.writeConcernError.errmsg
 
-      A description of the error.
+     A description of the cause of the write concern error.
+
+   .. data:: WriteResult.writeConcernError.errInfo.writeConcern
+
+     A document containing information on the write concern used for
+     the operation.
+
+     .. data:: WriteResult.writeConcernError.errInfo.writeConcern.w
+
+        An integer value indicating the number of nodes to which
+        the operation must propagate.
+
+     .. data:: WriteResult.writeConcernError.errInfo.writeConcern.wtimeout
+
+        An integer value indicating the time limit in milliseconds for
+        the write concern.
+
+     .. data:: WriteResult.writeConcernError.errInfo.writeConcern.provenance
+
+        A string value indicating where the write concern originated
+        (known as write concern ``provenance``).
+        The following table shows the possible values for this field
+        and their significance:
+
+        .. include:: /includes/fact-wc-provenance-table.rst
+
 
 .. seealso:: :method:`WriteResult.hasWriteError()`,
    :method:`WriteResult.hasWriteConcernError()`
