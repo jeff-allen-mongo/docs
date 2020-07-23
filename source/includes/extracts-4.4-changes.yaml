@@ -510,4 +510,18 @@ content: |
   honor values other than the default. Instead, use the
   :dbcommand:`setDefaultRWConcern` command to set the default read or
   write concern configuration for a replica set or sharded cluster.
+---
+ref: 4.4-changes-tools
+content: |
+
+  Starting in version 4.4, the
+  :doc:`Windows MSI installer
+  </tutorial/install-mongodb-enterprise-on-windows.txt>` no longer
+  includes :db-tools:`Database Tools <>`. To download and install
+  the Database Tools on Windows, see
+  :db-tools:`Installation and Compatibility <installation>`.
+
+  If you were relying on the MongoDB 4.2 or previous MSI installer to
+  install the Database Tools along with the MongoDB Server, you must
+  now download the Database Tools separately.
 ...
