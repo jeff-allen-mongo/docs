@@ -1,8 +1,8 @@
 :orphan:
 
-=============================
-The MongoDB |version|  Manual
-=============================
+==========================================
+The MongoDB |version|  Manual Dummy Change
+==========================================
 
 .. default-domain:: mongodb
 
