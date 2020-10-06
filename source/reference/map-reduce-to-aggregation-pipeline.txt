@@ -459,7 +459,7 @@ Example 2
       documents with ``ord_date`` greater than or equal to ``new
       Date("2020-03-01")``.
    
-   #. The :pipeline:`$unwinds` stage breaks down the document by
+   #. The :pipeline:`$unwind` stage breaks down the document by
       the ``items`` array field to output a document for each array
       element. For example:
 
