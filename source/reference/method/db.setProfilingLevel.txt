@@ -45,6 +45,13 @@ Definition
    diagnostic log. That is, for a :binary:`~bin.mongos` instance, you
    must specify ``0`` for :ref:`level <set-profiling-level-level>`.
 
+   Starting in MongoDB 4.4, you can specify a :ref:`filter
+   <set-profiling-level-options-filter>` to control which operations
+   are logged by the profiler. The ``filter`` option is an
+   alternative to the :ref:`slowms
+   <set-profiling-level-options-slowms>`, and :ref:`sampleRate
+   <set-profiling-level-options-sampleRate>` options.
+
    :method:`db.setProfilingLevel()` provides a wrapper around the
    :dbcommand:`profile` command.
 
@@ -143,6 +150,37 @@ Parameters
                  This argument affects the same setting as the configuration option
                  :setting:`~operationProfiling.slowOpSampleRate`.
 
+          * - :ref:`filter <set-profiling-level-options-filter>`
+
+            - .. _set-profiling-level-options-filter:
+
+              Type: object
+              
+              A filter expression that controls which operations are
+              profiled and logged.  The field in the filter expression
+              can be :ref:`any field in the profiler output <profiler>`.
+
+              For :binary:`~bin.mongod` instances, the setting affects both the
+              diagnostic log and, if enabled, the profiler.
+
+              For :binary:`~bin.mongos` instances, the setting affects the
+              diagnostic log only and not the profiler since profiling is not
+              available on :binary:`~bin.mongos`.
+
+              For an example of a filter used to control logged
+              operations, see :ref:`profiler-filter-example`.
+
+              .. versionadded:: 4.4
+
+              .. note::
+
+                 When a profiling :ref:`filter
+                 <set-profiling-level-options-filter>` is set, the
+                 :ref:`slowms <set-profiling-level-options-slowms>` and
+                 :ref:`sampleRate
+                 <set-profiling-level-options-sampleRate>` options do
+                 not affect the diagnostic log or the profiler.
+
 Returns
 ~~~~~~~
 
@@ -209,6 +247,22 @@ Where:
 - ``sampleRate`` is the **previous** :ref:`sampleRate
   <set-profiling-level-options-sampleRate>` setting.
 
+- ``filter`` is the **previous** :ref:`filter
+  <set-profiling-level-options-filter>` setting.
+
+  .. versionadded:: 4.4.2
+
+- ``note`` is a string explaining the behavior of ``filter``. This field
+  only appears in the output when ``filter`` is also present.
+
+  .. versionadded:: 4.4.2
+
+.. note::
+
+   The ``filter`` and ``note`` fields only appear in the output if
+   they were present in the previous :ref:`level
+   <set-profiling-level-level>` setting.
+
 To view the current profiling level, see :method:`db.getProfilingStatus()`.
 
 Behavior
@@ -258,6 +312,30 @@ The following example sets for a :binary:`~bin.mongod` or
 .. code-block:: javascript
 
    db.setProfilingLevel(0, { slowms: 20, sampleRate: 0.42 })
+
+The method returns a document with the **previous** values for the
+settings.
+
+To view the current profiling level, see :method:`db.getProfilingStatus()`.
+
+.. _profiler-filter-example:
+
+Configure Profiler to Log Operations based on a Filter
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 4.4.2
+
+The following example sets for a :binary:`~bin.mongod` instance:
+
+- the :ref:`profiling level <set-profiling-level-level>` to ``2``,
+
+- the :ref:`filter <set-profiling-level-options-filter>` of
+  ``{ op: "query", millis: { $gt: 2000 } }``, which causes the profiler
+  to only log ``query`` operations that took longer than 2 seconds.
+
+.. code-block:: javascript
+  
+  db.setProfilingLevel( 2, { filter: { op: "query", millis: { $gt: 2000 } } } )
 
 The method returns a document with the **previous** values for the
 settings.

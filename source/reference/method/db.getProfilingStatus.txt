@@ -16,3 +16,10 @@ db.getProfilingStatus()
              :setting:`~operationProfiling.slowOpThresholdMs` setting,
              and :setting:`~operationProfiling.slowOpSampleRate`
              setting.
+
+             Starting in MongoDB 4.4.2, you can set a
+             :ref:`filter <set-profiling-level-options-filter>` to
+             control the operations logged by the profiler. If you 
+             have a filter set, :method:`db.getProfilingStatus()`
+             includes :setting:`~operationProfiling.filter` and
+             ``note``.

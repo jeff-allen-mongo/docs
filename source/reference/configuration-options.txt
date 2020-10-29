@@ -3916,6 +3916,7 @@ LDAP Parameters
       mode: <string>
       slowOpThresholdMs: <int>
       slowOpSampleRate: <double>
+      filter: <string>
 
 .. _configuration-profiling-mode:
 .. setting:: operationProfiling.mode
@@ -4008,7 +4009,31 @@ LDAP Parameters
         diagnostic log only and not the profiler since profiling is not
         available on :binary:`~bin.mongos`.
    
+.. _configuration-profiling-filter:
+.. setting:: operationProfiling.filter
 
+   *Type*: string representation of a document
+
+   A filter expression that controls which operations are profiled and
+   logged. The option takes a string representation of a query document
+   of the form:
+   
+   .. code-block:: javascript
+   
+      { <field1>: <expression1>, ... }
+   
+   The ``<field>`` can be :ref:`any field in the profiler output
+   <profiler>`. The ``<expression>`` is a :ref:`query condition
+   expression <query-selectors>`.
+   
+   To specify a profiling filter, enclose the filter document in single
+   quotes to pass the document as a string.
+   
+   To specify the profiling filter in a :doc:`configuration file
+   </reference/configuration-options>`, you must use the YAML format of
+   the configuration file.
+
+   .. versionadded:: 4.4.2
 
 .. _replication-options:
 
