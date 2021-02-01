@@ -101,7 +101,7 @@ Definition
    
         - integer
    
-        - Specifies the number of chunks to create
+        - Specifies the number of chunks to create blah blah blah
           initially when sharding an *empty* collection with a
           :ref:`hashed shard key <sharding-hashed-sharding>`. MongoDB
           will then create and balance chunks across the cluster. The
