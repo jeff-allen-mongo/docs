@@ -15,7 +15,7 @@ Definition
 
 .. dbcommand:: profile
 
-   .. versionchanged:: 4.4.2
+   .. versionchanged:: 5.0
 
    For a :binary:`~bin.mongod` instance, the command enables, disables,
    or configures the :doc:`/tutorial/manage-the-database-profiler`. The
@@ -159,7 +159,7 @@ Definition
              options are not used for profiling and slow-query log
              lines.
 
-          .. versionadded:: 4.4.2
+          .. versionadded:: 5.0
 
 The :method:`db.getProfilingStatus()` and
 :method:`db.setProfilingLevel()` :doc:`shell methods
@@ -176,11 +176,16 @@ database while enabling or disabling the profiler. This is typically a
 short operation. The lock blocks other operations until the
 :dbcommand:`profile` command has completed.
 
-Starting in MongoDB 4.4.2, when connected to a sharded cluster through
+Starting in MongoDB 5.0, when connected to a sharded cluster through
 :binary:`~bin.mongos`, you can run the :dbcommand:`profile` command
 against any database. In previous versions of MongoDB, when connected
 through :binary:`~bin.mongos`, you can only run the :dbcommand:`profile`
 command against the ``admin`` database.
+
+Log of Changes to Profile Level
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Starting in MongoDB 
 
 .. seealso::
    :ref:`Database Profiling <database-profiling>`.

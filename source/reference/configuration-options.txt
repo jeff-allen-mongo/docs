@@ -4019,7 +4019,7 @@ LDAP Parameters
          mode: all
          filter: '{ op: "query", millis: { $gt: 2000 } }'
 
-   .. versionadded:: 4.4.2
+   .. versionadded:: 5.0
 
 .. _replication-options:
 

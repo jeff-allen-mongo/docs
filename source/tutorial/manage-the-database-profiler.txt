@@ -215,7 +215,7 @@ sampling rate for logging slow operations:
 Set a Filter to Determine Profiled Operations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. versionadded:: 4.4.2
+.. versionadded:: 5.0
 
 You can set a filter to control which operations are profiled and
 logged. You can set the profiling filter in one of the following ways:
