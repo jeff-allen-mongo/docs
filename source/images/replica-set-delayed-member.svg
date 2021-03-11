@@ -25,7 +25,7 @@
       <tspan x="-31.119" y="1" font-family="GillSans-Light" font-size="11" fill="#000000">hidden: true </tspan>
     </text>
     <text transform="matrix(1, 0, 0, 1, 556.909, 179)">
-      <tspan x="-38.909" y="1" font-family="GillSans-Light" font-size="11" fill="#000000">slaveDelay: 3600</tspan>
+      <tspan x="-38.909" y="1" font-family="GillSans-Light" font-size="11" fill="#000000">secondaryDelay: 3600</tspan>
     </text>
     <text transform="matrix(1, 0, 0, 1, 627.641, -0.458)"/>
     <g>
