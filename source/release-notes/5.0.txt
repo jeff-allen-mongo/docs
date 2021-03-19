@@ -45,6 +45,7 @@ MongoDB 5.0 introduces the following aggregation operators:
        select documents from a pipeline at a given rate.
 
    * - :expression:`$rand`
+<<<<<<< HEAD
      - The :expression:`$rand` method generates a random float value
        between 0 and 1 each time it is called. The new
        :expression:`$sampleRate` operator is based on ``$rand``. (Also
@@ -61,6 +62,22 @@ MongoDB 5.0 introduces the following aggregation operators:
           The :group:`$count (aggregation accumulator) <$count>` is
           distinct from the :pipeline:`$count (aggregation) <$count>` 
           pipeline stage. 
+=======
+     - New to MongoDB 5.0 (and 4.4.2), the :expression:`$rand` method
+       generates a random float value between 0 and 1 each time it is
+       called. The new :expression:`$sampleRate` operator is based on
+       ``$rand``.
+     
+Window Operators
+~~~~~~~~~~~~~~~~
+
+MongoDB 5.0 introduces the :pipeline:`$setWindowFields` pipeline stage,
+allowing you to perform operations on a specified span of documents in a
+collection, known as a *window*. The operation returns the results based
+on the chosen :ref:`window operator <setWindowFields-window-operators>`.
+
+.. include:: /includes/setWindowFields-introduction-examples.rst
+>>>>>>> f7253052c... DOCSP-10258 window functions
 
 General Aggregation Improvements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
