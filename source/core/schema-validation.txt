@@ -237,7 +237,7 @@ Schema validator:
             },
             email: {
                bsonType : "string",
-               pattern : "@mongodb\.com$",
+               pattern : "@mongodb\\.com$",
                description: "must be a string and match the regular expression pattern"
             },
             status: {
@@ -248,6 +248,11 @@ Schema validator:
       } },
       validationAction: "warn" 
    } )
+
+.. note::
+
+   The ``pattern`` field for ``email`` validation contains a second
+   ``\`` character, which is used as an escape character.
 
 With the ``warn`` :collflag:`validationAction`, MongoDB logs any
 violations but allows the insertion or update to proceed.
