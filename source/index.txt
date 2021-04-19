@@ -13,6 +13,8 @@ The MongoDB |version|  Manual
    To download MongoDB 4.4, go to the `MongoDB Download Center
    <https://www.mongodb.com/try/download?tck=docs_server>`_.
 
+:hardlink:`Hello </mongo>`
+
 Welcome to the MongoDB |version| Manual! MongoDB is a
 document database designed for ease of development
 and scaling. The Manual introduces key concepts in MongoDB, presents the
