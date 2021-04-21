@@ -4,9 +4,8 @@ content: |
    .. note:: Deprecated since {{version}}
 
 
-      Starting in v3.2, the {{op}} operator is deprecated in the
-      :binary:`~bin.mongo` shell. In the :binary:`~bin.mongo` shell,
-      use {{alternative}} instead.
+      The {{op}} operator is not available in ``mongosh`` and is deprecated in the
+      :binary:`~bin.mongo` shell starting in version 3.2. Instead, use {{alternative}}.
 
 ---
 ref: mongo-shell-deprecated-meta-operator-comment
