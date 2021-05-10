@@ -35,6 +35,10 @@ Aggregation Reference
    the aggregation pipeline and operators in MongoDB and common SQL
    statements.
 
+`Practical MongoDB Aggregations <https://www.practical-mongodb-aggregations.com>`__
+  For more information on aggregations, read the Practical MongoDB
+  Aggregations e-book.
+
 
 .. toctree::
    :titlesonly: 
