@@ -52,6 +52,30 @@ To guarantee backward compatibility, your application must:
 Declare the API Version
 -----------------------
 
+Select your driver:
+
+.. tabs-selector:: drivers
+
+.. tabs-drivers::
+
+   .. tab::
+      :tabid: python
+
+      .. literalinclude:: /driver-examples/test_examples.py
+         :language: python
+         :dedent: 12
+         :start-after: Start Versioned API Example 1
+         :end-before: End Versioned API Example 1
+
+   .. tab::
+      :tabid: php
+
+      .. literalinclude:: /driver-examples/DocumentationExamplesTest.php
+         :language: php
+         :dedent: 8
+         :start-after: Start Versioned API Example 1
+         :end-before: End Versioned API Example 1
+
 To use the Versioned API, upgrade to the latest driver and create your 
 application's MongoClient:
 
