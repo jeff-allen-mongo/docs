@@ -1,0 +1,81 @@
+========================
+$dateTrunc (aggregation)
+========================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Definition
+----------
+
+.. expression:: $dateTrunc
+
+   .. versionadded:: 5.0
+
+   Truncates a :doc:`Date </reference/method/Date>` object to a
+   specified unit of time. :expression:`$dateTrunc` rounds the
+   input date down to the nearest unit specified in the
+   expression.
+
+   The :expression:`$dateTrunc` expression has the following syntax:
+
+   .. code-block:: javascript
+
+      {
+         $dateTrunc: {
+            date: <Expression>,
+            unit: <Expression>,
+            binSize: <integer>,
+            timezone: <tzExpression>,
+            startOfWeek: <Expression>
+         }
+      }
+
+   .. list-table::
+      :header-rows: 1
+      :widths: 20 20 60
+
+      * - Field
+        - Required / Optional
+        - Description
+
+      * - ``date``
+        - Required
+        - The date, in UTC, to truncate. The ``date`` can be any
+          :ref:`expression <aggregation-expressions>` that resolves to
+          a :ref:`Date <document-bson-type-date>`, a
+          :ref:`Timestamp <document-bson-type-timestamp>`,
+          or an :ref:`ObjectID <document-bson-type-object-id>`.
+
+      * - ``unit``
+        - Required
+        - The unit of time to which the ``date`` is
+          truncated. The ``unit`` is an
+          :ref:`expression <aggregation-expressions>` that resolves to
+          one of the following strings:
+
+          - ``year``
+          - ``quarter``
+          - ``week``
+          - ``month``
+          - ``day``
+          - ``hour``
+          - ``minute``
+          - ``second``
+
+      * - ``binSize``
+        - Required
+        - TBD
+
+      * - ``timezone``
+        - Optional
+        -  .. include:: /includes/fact-timezone-description-no-option.rst
+
+   For more information on expressions and types see
+   :ref:`aggregation-expressions` and :ref:`bson-types`.
+

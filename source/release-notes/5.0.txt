@@ -65,6 +65,9 @@ MongoDB 5.0 introduces the following aggregation operators:
      - Decrements a :doc:`Date </reference/method/Date>` object by a
        specified number of time units.
 
+   * - :expression:`$dateTrunc`
+     - Truncates a date to a specified unit of time.
+
    * - :expression:`$sampleRate`
      - Adds the :expression:`$sampleRate` method to probabilistically
        select documents from a pipeline at a given rate.
