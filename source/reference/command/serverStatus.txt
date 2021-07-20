@@ -899,8 +899,8 @@ freeMonitoring
 
 .. code-block:: javascript
 
-   "freeMonitoring" : {
-      "state" : <string>,
+   freeMonitoring : {
+      state : <string>,
       "retryIntervalSecs" : NumberLong(<num>),
       "lastRunTime" : <string>,
       "registerErrors" : NumberLong(<num>),
